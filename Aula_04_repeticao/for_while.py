@@ -30,11 +30,17 @@ while i < 10:
     print(f"produto {i}")'''
 
 
-for cp in range(3):
+'''for cp in range(3):
     print(f"produto {cp}")
 
 for i in range (0,11,5):
-    print(i)
+    print(i)'''
+
+
+
+for i in range(0, 10):
+    for j in range (0,9,2):
+        print (f"i:{i}, j:{j}")
 
 
 
