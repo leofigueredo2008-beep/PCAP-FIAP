@@ -18,6 +18,40 @@ def add_lead():
 
     print("Lead adicionado (func)")
 
+def list_leads():
+    leads = control.read_leads()
+    if not leads:
+        print("Nenhum lead ainda")
+        return
+
+    print(f"## | {"Nome":<20} | {"email":<20} | Empresa")
+    for i, lead in enumerate(leads):
+        print(f"{i:02d} | {lead["name"]:<20} | {lead["email"]:<20} | {lead["company"]}")
+
+def search_leads():
+    query = input("Buscar por: ").strip().lower()
+
+    if not query:
+        print("Consulta vazia")
+
+        return 
+
+#Envia a query para o control realizar a busca no leads
+
+    leads_found = control.read_leads_search(query)
+
+    print(f"## | {"Nome":<20} | {"email":<20} | Empresa")
+    for i, lead in leads_found:
+        print(f"{i:02d} | {lead["name"]:<20} | {lead["email"]:<20} | {lead["company"]}")
+
+
+def export_leads():
+    path_csv = control.export_csv()
+
+    if path_csv is None:
+        print("Não foi possivel exportar os leads")
+    else:
+        print(f"Exportado para {path_csv}")
 
 def main():
 
@@ -26,6 +60,8 @@ def main():
         print("\nmini CRM de leads")
         print("\n 1 - adicionar lead")
         print("\n 2 - listar leads")
+        print("\n 3 - Buscar (nome/email/empresa)")
+        print("\n 4 - Exportar CSV")
         print("\n 0 - sair do programa")
 
         opt = input("Escolha uma opcao: ")
@@ -33,7 +69,11 @@ def main():
         if opt == "1":
             add_lead()
         elif opt == "2":
-            print("Listar leads")
+            list_leads()
+        elif opt == "3":
+            search_leads()
+        elif opt == "4":
+            export_leads()
         elif opt == "0":
             print("Até mais...")
             break

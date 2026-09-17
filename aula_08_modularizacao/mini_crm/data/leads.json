@@ -8,9 +8,16 @@
   },
   {
     "name": "leo",
-    "email": "leo",
+    "email": "leo@fiap.com",
     "company": "nike",
     "step": "novo",
     "created": "2026-09-10"
+  },
+  {
+    "name": "Ronaldo",
+    "email": "Ronaldo@email.com",
+    "company": "FIAP",
+    "step": "novo",
+    "created": "2026-09-17"
   }
 ]
